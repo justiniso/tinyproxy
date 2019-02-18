@@ -15,7 +15,7 @@ RUN adduser -D -u 2000 -h /var/run/tinyproxy -s /sbin/nologin tinyproxy tinyprox
 RUN git clone -b ${TINYPROXY_VERSION} --depth=1 https://github.com/tinyproxy/tinyproxy.git /tmp/tinyproxy \
   && cd /tmp/tinyproxy \
   && ./autogen.sh \
-  && ./configure --enable-filter --enable-upstream --enable-reverse \
+  && ./configure --enable-transparent --enable-filter --enable-upstream --enable-reverse \
   && make \
   && make install \
   && mkdir -p /var/log/tinyproxy \
